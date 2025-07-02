@@ -1,0 +1,17 @@
+.widget-container {
+    position: relative;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: red;
+    cursor: pointer;
+    user-select: none;
+  }

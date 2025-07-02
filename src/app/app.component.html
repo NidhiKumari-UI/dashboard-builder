@@ -1,0 +1,39 @@
+
+
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">
+      <h2 class="text-white m-0">Dashboard Builder</h2>
+    </a>
+  </div>
+  <button class="btn btn-outline-primary" (click)="showAddChartDialog()"> + Add Widgets</button>
+  <app-modal #modal (closed)="onModalClosed()"></app-modal>
+</nav>
+
+
+
+<div class="container">
+  <div class="top-half">
+    <div class="widget" *ngIf="showDashboard">
+      <app-dashboard (delete)="removeDashboard()"></app-dashboard>
+    </div>
+    <div class="widget" *ngIf="showWeekday">
+      <app-weekday-widget (delete)="removeWeekday()"></app-weekday-widget>
+    </div>
+  </div>
+  <div class="bottom-half" *ngIf="showDaily">
+    <app-daily (delete)="removeDaily()"></app-daily>
+  </div>
+</div>
+
+
+
+<app-modal
+  #modal
+  [class.greyed-out]="showDashboard"
+  [showWeekday]="showWeekday"
+  [showDaily]="showDaily"
+  (closed)="onModalClosed()"
+  (addWidgets)="handleAddWidgets($event)">
+</app-modal>
+  

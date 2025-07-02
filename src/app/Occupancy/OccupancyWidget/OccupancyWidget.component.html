@@ -1,0 +1,13 @@
+
+<div class="widget-container">
+  <button class="delete-btn" (click)="onDelete()">✕</button>
+  
+  <!-- Your existing widget content -->
+  <app-bar-chart
+    [labels]="['Deluxe', 'Standard', 'Suite', 'Family', 'Economy']"
+    [data]="[120, 95, 60, 30, 25]"
+    title="Occupancy Trends"
+  ></app-bar-chart>
+</div>
+
+

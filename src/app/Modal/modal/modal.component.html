@@ -1,0 +1,45 @@
+<div class="modal-backdrop" *ngIf="visible" (click)="close()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h3>Select Widgets to Add</h3>
+
+    <div [formGroup]="form" style="display: flex; flex-direction: column; gap: 12px; max-width: 200px;">
+
+      <label [class.disabled]="showDashboard">
+         <input type="radio" [disabled]="showDashboard" />
+<label [class.disabled]="showDashboard">Occupancy Widget</label>
+      </label>
+
+    
+
+      <label [class.disabled]="showWeekday">
+        <input
+          type="radio"
+          formControlName="weekdayWidget"
+          value="selected"
+          [disabled]="showWeekday"
+        />
+        Weekday widget
+      </label>
+
+      <label [class.disabled]="showDaily">
+        <input
+          type="radio"
+          formControlName="dailyWidget"
+          value="selected"
+          [disabled]="showDaily"
+        />
+        Daily widget
+      </label>
+
+      <div class="actions">
+        <button
+          (click)="add()"
+          [disabled]="!form.value.occupancyWidget && !form.value.weekdayWidget && !form.value.dailyWidget"
+        >
+          Add
+        </button>
+        <button (click)="close()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

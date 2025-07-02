@@ -1,0 +1,11 @@
+
+
+
+<div class="widget-container">
+  <button class="delete-btn" (click)="onDelete()">✕</button>
+  <app-line-chart
+  [labels]="last14Days"
+  [dataPoints]="checkInCounts"
+  chartLabel="Check-ins over Last 14 Days"
+></app-line-chart>
+</div>
