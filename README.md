@@ -67,5 +67,5 @@ src/
 
 
 Please Find the image below:
-![Dashboard Builder](image-1.png)
-![Add New Widget Modal](image-3.png)
+![Dashboard Builder](Dashboard.png)
+![Add New Widget Modal](Modal.png)
