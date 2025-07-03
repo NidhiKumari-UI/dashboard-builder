@@ -1,0 +1,4 @@
+{
+  "labels": ["Deluxe", "Standard", "Suite", "Family", "Economy"],
+  "data": [120, 95, 60, 30, 25]
+}
