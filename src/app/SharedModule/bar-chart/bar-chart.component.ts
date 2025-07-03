@@ -1,8 +1,7 @@
-import { Component, Input, ViewChild, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, effect, inject, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, inject, PLATFORM_ID } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
-
 
 @Component({
   selector: 'app-bar-chart',
@@ -10,7 +9,7 @@ import { ChartModule } from 'primeng/chart';
   templateUrl: './bar-chart.component.html',
   styleUrl: './bar-chart.component.css'
 })
-export class BarChartComponent implements OnInit, OnChanges {
+export class BarChartComponent implements OnChanges {
   @Input() labels: string[] = [];
   @Input() data: number[] = [];
   @Input() title: string = 'Chart';
@@ -20,10 +19,6 @@ export class BarChartComponent implements OnInit, OnChanges {
   platformId = inject(PLATFORM_ID);
 
   constructor(private cd: ChangeDetectorRef) {}
-
-  ngOnInit() {
-    this.initChart();
-  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['labels'] || changes['data']) {
@@ -95,5 +90,4 @@ export class BarChartComponent implements OnInit, OnChanges {
       this.cd.markForCheck();
     }
   }
-
 }

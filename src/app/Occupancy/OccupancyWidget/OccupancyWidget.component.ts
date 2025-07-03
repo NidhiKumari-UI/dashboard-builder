@@ -24,29 +24,24 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.http.get<OccupancyData[]>('mock-data.json').subscribe(data => {
-     const processedData = this.processRoomOccupancy(data);
+      const processedData = this.processRoomOccupancy(data);
       this.labels = processedData.labels;
       this.data = processedData.values;
     });
   }
 
-
-processRoomOccupancy(data: any[]) {
-  // Count occurrences of each room type
-  const counts: Record<string, number> = {};
-  data.forEach(booking => {
-    counts[booking.roomType] = (counts[booking.roomType] || 0) + 1;
-  });
-  // Convert to array and sort by count descending
-  const sorted = Object.entries(counts)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 5);
-  // Separate into labels and values
-  const labels = sorted.map(([roomType]) => roomType);
-  const values = sorted.map(([, count]) => count);
-  return { labels, values };
-}
-
+  processRoomOccupancy(data: any[]) {
+    const counts: Record<string, number> = {};
+    data.forEach(booking => {
+      counts[booking.roomType] = (counts[booking.roomType] || 0) + 1;
+    });
+    const sorted = Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5);
+    const labels = sorted.map(([roomType]) => roomType);
+    const values = sorted.map(([, count]) => count);
+    return { labels, values };
+  }
 
   onDelete() {
     this.delete.emit();

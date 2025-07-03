@@ -18,13 +18,13 @@ interface BookingData {
 
 
 export class WeekdayWidgetComponent implements OnInit {
-  
+
   @Output() delete = new EventEmitter<void>();
   private http = inject(HttpClient);
-   onDelete() {
+  onDelete() {
     this.delete.emit();
   }
-  
+
   labels: string[] = [];
   data: number[] = [];
 
@@ -36,16 +36,16 @@ export class WeekdayWidgetComponent implements OnInit {
     });
   }
 
-  
- processWeekdayCheckins(data: any[]) {
+
+  processWeekdayCheckins(data: any[]) {
     const counts = new Array(7).fill(0);
     data.forEach(booking => {
-        const dayIndex = new Date(booking.checkInDate + 'T00:00:00').getDay();
-        counts[dayIndex]++;
+      const dayIndex = new Date(booking.checkInDate + 'T00:00:00').getDay();
+      counts[dayIndex]++;
     });
     const reorderedLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     const reorderedCounts = [...counts.slice(1), counts[0]];
     return { labels: reorderedLabels, values: reorderedCounts };
-}
+  }
 
 }

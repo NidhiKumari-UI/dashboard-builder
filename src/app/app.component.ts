@@ -1,21 +1,22 @@
 import { Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DashboardComponent } from './Occupancy/OccupancyWidget/OccupancyWidget.component';
-import {WeekdayWidgetComponent} from './Weekday/weekday-widget/weekday-widget.component';
-import {DailyComponent} from './DailyWidget/DailyWidget.component';
+import { WeekdayWidgetComponent } from './Weekday/weekday-widget/weekday-widget.component';
+import { DailyComponent } from './DailyWidget/DailyWidget.component';
 import { ModalComponent } from './Modal/modal/modal.component';
 import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-root',
-  imports: [ DashboardComponent, WeekdayWidgetComponent, DailyComponent, ModalComponent, CommonModule],
+  imports: [DashboardComponent, WeekdayWidgetComponent, DailyComponent, ModalComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  
   showDashboard = true;
   showWeekday = false;
   showDaily = false;
+  @ViewChild('modal') modal!: ModalComponent;
 
   removeDashboard() {
     this.showDashboard = false;
@@ -29,18 +30,14 @@ export class AppComponent {
     this.showDaily = false;
   }
 
-  //creating the reference to the model
-  @ViewChild('modal') modal!: ModalComponent;
-  
   showAddChartDialog() {
     this.modal.open();
   }
-  
+
   onModalClosed() {
     console.log('Modal closed');
   }
 
-  // which one is displayed on the main dashboard and passes the current state
   getDisplayedWidgets() {
     return {
       occupancy: this.showDashboard,
