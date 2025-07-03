@@ -1,16 +1,16 @@
 <div class="modal-backdrop" *ngIf="visible" (click)="close()">
   <div class="modal-content" (click)="$event.stopPropagation()">
 
-    <h3>Select Widgets to Add</h3>
+    <h3>Select Widgets</h3>
 
-    <div [formGroup]="form" style="display: flex; flex-direction: column; gap: 12px; max-width: 200px;">
+    <div [formGroup]="form" style="display: flex; flex-direction: column; gap: 12px;">
       <label [class.disabled]="displayedWidgets.occupancy">
         <input 
           type="radio" 
           formControlName="occupancyWidget" 
           value="selected"
           [disabled]="displayedWidgets.occupancy" />
-        Occupancy widget
+        Top 5 Room Types by Occupancy
         <span *ngIf="displayedWidgets.occupancy" class="already-added">(Already Added)</span>
       </label>
 
@@ -20,7 +20,7 @@
           formControlName="weekdayWidget" 
           value="selected"
           [disabled]="displayedWidgets.weekday" />
-        Weekday widget
+        Check-in Count by Weekday
         <span *ngIf="displayedWidgets.weekday" class="already-added">(Already Added)</span>
       </label>
 
@@ -30,7 +30,7 @@
           formControlName="dailyWidget" 
           value="selected"
           [disabled]="displayedWidgets.daily" />
-        Daily widget
+        Daily Check-ins over the past 14 days
         <span *ngIf="displayedWidgets.daily" class="already-added">(Already Added)</span>
       </label>
 
