@@ -1,6 +1,6 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, effect, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, effect, inject, PLATFORM_ID } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
 
 
@@ -10,7 +10,7 @@ import { ChartModule } from 'primeng/chart';
   templateUrl: './bar-chart.component.html',
   styleUrl: './bar-chart.component.css'
 })
-export class BarChartComponent implements OnInit{
+export class BarChartComponent implements OnInit, OnChanges {
   @Input() labels: string[] = [];
   @Input() data: number[] = [];
   @Input() title: string = 'Chart';
@@ -23,6 +23,12 @@ export class BarChartComponent implements OnInit{
 
   ngOnInit() {
     this.initChart();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['labels'] || changes['data']) {
+      this.initChart();
+    }
   }
 
   initChart() {

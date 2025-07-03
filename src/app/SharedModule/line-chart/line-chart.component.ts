@@ -1,6 +1,5 @@
-
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, Component, Input, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, OnChanges, SimpleChanges, inject, PLATFORM_ID } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
 
 @Component({
@@ -10,7 +9,7 @@ import { ChartModule } from 'primeng/chart';
   templateUrl: './line-chart.component.html',
   styleUrl: './line-chart.component.css'
 })
-export class LineChartComponent implements OnInit {
+export class LineChartComponent implements OnInit, OnChanges {
   @Input() labels: string[] = [];
   @Input() dataPoints: number[] = [];
   @Input() chartLabel: string = 'Check-ins';
@@ -24,6 +23,12 @@ export class LineChartComponent implements OnInit {
 
   ngOnInit() {
     this.initChart();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['labels'] || changes['dataPoints']) {
+      this.initChart();
+    }
   }
 
   initChart() {
