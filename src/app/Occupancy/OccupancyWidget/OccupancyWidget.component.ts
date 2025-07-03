@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, signal, toSignal, inject } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BarChartComponent } from '../../SharedModule/bar-chart/bar-chart.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -18,18 +18,6 @@ interface OccupancyData {
 export class DashboardComponent {
   @Output() delete = new EventEmitter<void>();
   private http = inject(HttpClient);
-
-  occupancyData = toSignal(
-    this.http.get<OccupancyData>('assets/mock-occupancy-data.json'),
-    { initialValue: { labels: [], data: [] } }
-  );
-
-  get labels() {
-    return this.occupancyData().labels;
-  }
-  get data() {
-    return this.occupancyData().data;
-  }
 
   onDelete() {
     this.delete.emit();
