@@ -18,7 +18,7 @@ export class BarChartComponent implements OnChanges {
   basicOptions: any;
   platformId = inject(PLATFORM_ID);
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['labels'] || changes['data']) {

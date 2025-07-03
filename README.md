@@ -27,76 +27,59 @@ To run the application locally:
 The app will reload automatically if you make changes to the source files.
 
 
-## App Structure and Reasoning
-
-The application follows a modular and feature-based folder structure to promote scalability, maintainability, and clear separation of concerns. Here is an overview of the structure:
-
+## App Structure
+Project Structure is as below:
 ```
 src/
+  styles.css
   app/
-    DailyWidget/           # Daily statistics widget component
-    Modal/                 # Modal dialog components
-      modal/
-    Occupancy/             # Occupancy-related features
+    app.component.css
+    app.component.html
+    app.component.spec.ts
+    app.component.ts
+    Components/
+      DailyWidget/
+        DailyWidget.component.css
+        DailyWidget.component.html
+        DailyWidget.component.spec.ts
+        DailyWidget.component.ts
       OccupancyWidget/
-    SharedModule/          # Shared reusable components (charts, etc.)
+        OccupancyWidget.component.css
+        OccupancyWidget.component.html
+        OccupancyWidget.component.spec.ts
+        OccupancyWidget.component.ts
+      WeekdayWidget/
+        WeekdayWidget.component.css
+        WeekdayWidget.component.html
+        WeekdayWidget.component.spec.ts
+        WeekdayWidget.component.ts
+    Modal/
+      modal/
+        modal.component.css
+        modal.component.html
+        modal.component.spec.ts
+        modal.component.ts
+    SharedModule/
       bar-chart/
+        bar-chart.component.css
+        bar-chart.component.html
+        bar-chart.component.spec.ts
+        bar-chart.component.ts
       line-chart/
-    Weekday/               # Weekday-related features
-      weekday-widget/
-    app.component.*        # Root component files
-    app.config.*           # App configuration files
-    app.routes.*           # App routing files
-  assets/                  # Static assets and mock data
-  index.html               # Main HTML entry point
-  main.ts                  # Main application bootstrap
-  main.server.ts           # Server-side entry point (if SSR)
-  server.ts                # Server configuration (if SSR)
-  styles.css               # Global styles
+        line-chart.component.css
+        line-chart.component.html
+        line-chart.component.spec.ts
+        line-chart.component.ts
+  assets/
+    mock-data.json
 ```
 
 **Reasoning and Approach:**
 - **Feature Modules:** Each major feature (e.g., DailyWidget, Occupancy, Weekday) is placed in its own folder, making it easy to develop, test, and maintain features independently.
 - **SharedModule:** Common components (like charts) are grouped under `SharedModule` for reuse across the app, reducing code duplication.
-- **Separation of Concerns:** Routing, configuration, and core app logic are separated into dedicated files for clarity and easier updates.
 - **Scalability:** This structure supports adding new features or modules with minimal impact on existing code.
 - **Assets:** Static files and mock data are kept in the `assets` folder, following Angular best practices.
 
-This approach aligns with Angular's recommended best practices for large-scale applications, ensuring the codebase remains organized and maintainable as it grows.
-
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
 
 

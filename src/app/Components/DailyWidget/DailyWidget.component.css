@@ -2,13 +2,13 @@
     position: relative;
     padding: 1rem;
     border-radius: 8px;
-  }
-  
-  .delete-btn {
+}
+
+.delete-btn {
     position: absolute;
     top: 8px;
     right: 8px;
-    background: rgba(255,255,255,0.85);
+    background: rgba(255, 255, 255, 0.85);
     border: none;
     font-size: 20px;
     color: red;
@@ -17,4 +17,4 @@
     z-index: 10;
     padding: 4px 8px;
     border-radius: 50%;
-  }
+}

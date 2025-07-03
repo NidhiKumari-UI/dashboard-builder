@@ -5,41 +5,30 @@
 
     <div [formGroup]="form" style="display: flex; flex-direction: column; gap: 12px;">
       <label [class.disabled]="displayedWidgets.occupancy">
-        <input 
-          type="radio" 
-          formControlName="occupancyWidget" 
-          value="selected"
+        <input type="radio" formControlName="occupancyWidget" value="selected"
           [disabled]="displayedWidgets.occupancy" />
         Top 5 Room Types by Occupancy
         <span *ngIf="displayedWidgets.occupancy" class="already-added">(Already Added)</span>
       </label>
 
       <label [class.disabled]="displayedWidgets.weekday">
-        <input 
-          type="radio" 
-          formControlName="weekdayWidget" 
-          value="selected"
-          [disabled]="displayedWidgets.weekday" />
+        <input type="radio" formControlName="weekdayWidget" value="selected" [disabled]="displayedWidgets.weekday" />
         Check-in Count by Weekday
         <span *ngIf="displayedWidgets.weekday" class="already-added">(Already Added)</span>
       </label>
 
       <label [class.disabled]="displayedWidgets.daily">
-        <input 
-          type="radio" 
-          formControlName="dailyWidget" 
-          value="selected"
-          [disabled]="displayedWidgets.daily" />
+        <input type="radio" formControlName="dailyWidget" value="selected" [disabled]="displayedWidgets.daily" />
         Daily Check-ins over the past 14 days
         <span *ngIf="displayedWidgets.daily" class="already-added">(Already Added)</span>
       </label>
 
       <div class="actions">
-        <button (click)="add()" [disabled]="!form.value.occupancyWidget && !form.value.weekdayWidget && !form.value.dailyWidget">Add</button>
+        <button (click)="add()"
+          [disabled]="!form.value.occupancyWidget && !form.value.weekdayWidget && !form.value.dailyWidget">Add</button>
         <button (click)="close()">Close</button>
-      </div> <!-- closes div.actions -->
+      </div>
 
-    </div> <!-- closes div with formGroup -->
-
-  </div> <!-- closes div.modal-content -->
-</div> <!-- closes div.modal-backdrop -->
+    </div>
+  </div>
+</div>

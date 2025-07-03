@@ -1,5 +1,3 @@
-
-
 <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
   <div class="container-fluid">
     <a class="navbar-brand text-white" href="#">
@@ -7,9 +5,7 @@
     </a>
   </div>
   <button class="btn btn-outline-primary" (click)="showAddChartDialog()"> + Add Widgets</button>
-  <app-modal #modal 
-    [displayedWidgets]="getDisplayedWidgets()"
-    (closed)="onModalClosed()"
+  <app-modal #modal [displayedWidgets]="getDisplayedWidgets()" (closed)="onModalClosed()"
     (addWidgets)="onAddWidgets($event)"></app-modal>
 </nav>
 
@@ -28,5 +24,3 @@
     <app-daily (delete)="removeDaily()"></app-daily>
   </div>
 </div>
-
-  

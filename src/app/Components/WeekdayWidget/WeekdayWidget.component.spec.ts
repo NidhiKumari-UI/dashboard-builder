@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { WeekdayWidgetComponent } from './weekday-widget.component';
+import { WeekdayWidgetComponent } from './WeekdayWidget.component';
 
 describe('WeekdayWidgetComponent', () => {
   let component: WeekdayWidgetComponent;

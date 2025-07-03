@@ -19,7 +19,7 @@ export class LineChartComponent implements OnInit, OnChanges {
 
   platformId = inject(PLATFORM_ID);
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.initChart();

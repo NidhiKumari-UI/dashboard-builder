@@ -1,42 +1,48 @@
 .modal-backdrop {
     position: fixed;
     inset: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-  }
-  
-  .modal-content {
+}
+
+.modal-content {
     background: #fff;
     padding: 2rem 2.5rem;
     border-radius: 16px;
-    width: 420px; /* Increased width for more space */
+    width: 420px;
     min-width: 320px;
     max-width: 90vw;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1.5px 6px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18), 0 1.5px 6px rgba(0, 0, 0, 0.08);
     border: 1px solid #e3e3e3;
     animation: modalFadeIn 0.3s;
-  }
-  
-  @keyframes modalFadeIn {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  h3 {
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h3 {
     color: #007bff;
     font-weight: 700;
     margin-bottom: 1.5rem;
     letter-spacing: 0.5px;
-  }
-  
-  label {
+}
+
+label {
     color: #222;
     background: #f7f7f7;
     border-radius: 6px;
-    /* padding: 0.7rem 1rem; */
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -45,15 +51,15 @@
     cursor: pointer;
     width: 100%;
     box-sizing: border-box;
-    /* Removed white-space: nowrap to allow wrapping */
-    /* Ensure background covers all lines of text */
-  }
-  label.disabled {
+}
+
+label.disabled {
     opacity: 0.5;
     cursor: not-allowed;
     background: #f0f0f0;
-  }
-  input[type="radio"] {
+}
+
+input[type="radio"] {
     margin-right: 10px;
     accent-color: #007bff;
     width: 18px;
@@ -61,37 +67,37 @@
     background: #f0f4fa;
     border-radius: 50%;
     border: 1.5px solid #b0b0b0;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     margin: 0 0 0 8px;
-  }
-  
-  .row {
+}
+
+.row {
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  
-  label {
+}
+
+label {
     flex: 1;
     margin-right: 0.5rem;
     font-weight: 600;
     padding: 10px 0 10px 0;
-  }
-  
-  select {
+}
+
+select {
     flex: 1;
     padding: 0.3rem 0.5rem;
-  }
-  
-  .actions {
+}
+
+.actions {
     display: flex;
     justify-content: flex-end;
     gap: 0.75rem;
     margin-top: 1.5rem;
-  }
-  
-  button {
+}
+
+button {
     background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
     color: #fff;
     border: none;
@@ -99,34 +105,35 @@
     padding: 0.6rem 1.3rem;
     font-size: 1rem;
     font-weight: 600;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
     cursor: pointer;
     transition: background 0.2s, box-shadow 0.2s;
-  }
-  button:disabled {
+}
+
+button:disabled {
     background: #b0b0b0;
     color: #f7f7f7;
     cursor: not-allowed;
     box-shadow: none;
-  }
-  button:hover:not(:disabled) {
+}
+
+button:hover:not(:disabled) {
     background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
-    box-shadow: 0 4px 16px rgba(0,123,255,0.10);
-  }
-  
-  .disabled {
+    box-shadow: 0 4px 16px rgba(0, 123, 255, 0.10);
+}
+
+.disabled {
     opacity: 0.5;
     cursor: not-allowed;
-  }
-  
-  .already-added {
+}
+
+.already-added {
     font-size: 0.95em;
     color: #888;
     font-style: italic;
     margin-left: 6px;
-  }
-  
-  .disabled input {
-    cursor: not-allowed;
-  }
+}
 
+.disabled input {
+    cursor: not-allowed;
+}

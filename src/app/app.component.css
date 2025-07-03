@@ -1,12 +1,15 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
 }
+
 body {
   padding-top: 70px;
   height: 100%;
 }
+
 .container {
   min-height: 100vh;
   display: flex;
@@ -47,6 +50,7 @@ body {
   color: white;
   margin: 0;
 }
+
 .btn {
   white-space: nowrap;
   padding: 8px 16px;
@@ -61,10 +65,12 @@ body {
     align-items: flex-start;
     padding: 0.5rem 0.5rem;
   }
+
   .btn {
     align-self: flex-end;
     margin: 0.5rem 0 0.5rem auto;
   }
+
   .top-half .widget:first-child {
     margin-bottom: 12px;
   }

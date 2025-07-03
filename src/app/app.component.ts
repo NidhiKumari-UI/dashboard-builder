@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DashboardComponent } from './Occupancy/OccupancyWidget/OccupancyWidget.component';
-import { WeekdayWidgetComponent } from './Weekday/weekday-widget/weekday-widget.component';
-import { DailyComponent } from './DailyWidget/DailyWidget.component';
+import { DashboardComponent } from './Components/OccupancyWidget/OccupancyWidget.component';
+import { WeekdayWidgetComponent } from './Components/WeekdayWidget/WeekdayWidget.component';
+import { DailyComponent } from './Components/DailyWidget/DailyWidget.component';
 import { ModalComponent } from './Modal/modal/modal.component';
 import { CommonModule } from '@angular/common';
 
@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   imports: [DashboardComponent, WeekdayWidgetComponent, DailyComponent, ModalComponent, CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   showDashboard = true;
