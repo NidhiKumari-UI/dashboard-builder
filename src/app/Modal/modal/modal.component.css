@@ -1,5 +1,4 @@
-
-  .modal-backdrop {
+.modal-backdrop {
     position: fixed;
     inset: 0;
     background-color: rgba(0,0,0,0.5);
@@ -43,10 +42,20 @@
     justify-content: flex-end;
     gap: 0.5rem;
   }
-  
+
   .disabled {
-    color: gray;
     opacity: 0.5;
-    pointer-events: none;
+    cursor: not-allowed;
   }
-  
+
+  .already-added {
+    font-size: 0.85em;
+    color: #666;
+    font-style: italic;
+    margin-left: 8px;
+  }
+
+  .disabled input {
+    cursor: not-allowed;
+  }
+

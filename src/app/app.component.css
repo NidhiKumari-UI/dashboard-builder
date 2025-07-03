@@ -48,9 +48,4 @@ body {
     margin: 0 45px 0 0;
 
   }
-  .greyed-out {
-    background-color: grey;
-    opacity: 0.5;
-    pointer-events: none;
-  }
   

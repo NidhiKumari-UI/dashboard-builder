@@ -1,45 +1,45 @@
 <div class="modal-backdrop" *ngIf="visible" (click)="close()">
   <div class="modal-content" (click)="$event.stopPropagation()">
+
     <h3>Select Widgets to Add</h3>
 
     <div [formGroup]="form" style="display: flex; flex-direction: column; gap: 12px; max-width: 200px;">
-
-      <label [class.disabled]="showDashboard">
-         <input type="radio" [disabled]="showDashboard" />
-<label [class.disabled]="showDashboard">Occupancy Widget</label>
+      <label [class.disabled]="displayedWidgets.occupancy">
+        <input 
+          type="radio" 
+          formControlName="occupancyWidget" 
+          value="selected"
+          [disabled]="displayedWidgets.occupancy" />
+        Occupancy widget
+        <span *ngIf="displayedWidgets.occupancy" class="already-added">(Already Added)</span>
       </label>
 
-    
-
-      <label [class.disabled]="showWeekday">
-        <input
-          type="radio"
-          formControlName="weekdayWidget"
+      <label [class.disabled]="displayedWidgets.weekday">
+        <input 
+          type="radio" 
+          formControlName="weekdayWidget" 
           value="selected"
-          [disabled]="showWeekday"
-        />
+          [disabled]="displayedWidgets.weekday" />
         Weekday widget
+        <span *ngIf="displayedWidgets.weekday" class="already-added">(Already Added)</span>
       </label>
 
-      <label [class.disabled]="showDaily">
-        <input
-          type="radio"
-          formControlName="dailyWidget"
+      <label [class.disabled]="displayedWidgets.daily">
+        <input 
+          type="radio" 
+          formControlName="dailyWidget" 
           value="selected"
-          [disabled]="showDaily"
-        />
+          [disabled]="displayedWidgets.daily" />
         Daily widget
+        <span *ngIf="displayedWidgets.daily" class="already-added">(Already Added)</span>
       </label>
 
       <div class="actions">
-        <button
-          (click)="add()"
-          [disabled]="!form.value.occupancyWidget && !form.value.weekdayWidget && !form.value.dailyWidget"
-        >
-          Add
-        </button>
+        <button (click)="add()" [disabled]="!form.value.occupancyWidget && !form.value.weekdayWidget && !form.value.dailyWidget">Add</button>
         <button (click)="close()">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+      </div> <!-- closes div.actions -->
+
+    </div> <!-- closes div with formGroup -->
+
+  </div> <!-- closes div.modal-content -->
+</div> <!-- closes div.modal-backdrop -->

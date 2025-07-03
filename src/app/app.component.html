@@ -7,7 +7,10 @@
     </a>
   </div>
   <button class="btn btn-outline-primary" (click)="showAddChartDialog()"> + Add Widgets</button>
-  <app-modal #modal (closed)="onModalClosed()"></app-modal>
+  <app-modal #modal 
+    [displayedWidgets]="getDisplayedWidgets()"
+    (closed)="onModalClosed()"
+    (addWidgets)="onAddWidgets($event)"></app-modal>
 </nav>
 
 
@@ -26,14 +29,4 @@
   </div>
 </div>
 
-
-
-<app-modal
-  #modal
-  [class.greyed-out]="showDashboard"
-  [showWeekday]="showWeekday"
-  [showDaily]="showDaily"
-  (closed)="onModalClosed()"
-  (addWidgets)="handleAddWidgets($event)">
-</app-modal>
   

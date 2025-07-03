@@ -17,28 +17,6 @@ export class AppComponent {
   showWeekday = false;
   showDaily = false;
 
-  // Removed duplicate declaration of showDashboard
-  // showDashboard: boolean = false;
-
-  toggleDashboard() {
-    this.showDashboard = !this.showDashboard;
-  }
-  
-  // Ensure showDashboard is declared only once
-
-
-  handleAddWidgets(event: { occupancy: string; weekday: string; daily: string }) {
-    if (event.occupancy) {
-      this.showDashboard = true;
-    }
-    if (event.weekday) {
-      this.showWeekday = true;
-    }
-    if (event.daily) {
-      this.showDaily = true;
-    }
-  }
-
   removeDashboard() {
     this.showDashboard = false;
   }
@@ -51,13 +29,35 @@ export class AppComponent {
     this.showDaily = false;
   }
 
+  //creating the reference to the model
   @ViewChild('modal') modal!: ModalComponent;
   
   showAddChartDialog() {
-      this.modal.open();
-    }
+    this.modal.open();
+  }
   
-    onModalClosed() {
-      console.log('Modal closed');
+  onModalClosed() {
+    console.log('Modal closed');
+  }
+
+  // which one is displayed on the main dashboard and passes the current state
+  getDisplayedWidgets() {
+    return {
+      occupancy: this.showDashboard,
+      weekday: this.showWeekday,
+      daily: this.showDaily
+    };
+  }
+
+  onAddWidgets(widgets: { occupancy: string; weekday: string; daily: string }) {
+    if (widgets.occupancy === 'selected' && !this.showDashboard) {
+      this.showDashboard = true;
     }
+    if (widgets.weekday === 'selected' && !this.showWeekday) {
+      this.showWeekday = true;
+    }
+    if (widgets.daily === 'selected' && !this.showDaily) {
+      this.showDaily = true;
+    }
+  }
 }

@@ -1,20 +1,22 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-modal',
-  standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.css'
 })
 export class ModalComponent {
-  visible = false;
 
-  @Input() showDashboard = false;
-  @Input() showWeekday = false;
-  @Input() showDaily = false;
+visible = false;
+
+  @Input() displayedWidgets: { occupancy: boolean; weekday: boolean; daily: boolean } = {
+    occupancy: false,
+    weekday: false,
+    daily: false
+  };
 
   @Output() closed = new EventEmitter<void>();
   @Output() addWidgets = new EventEmitter<{ occupancy: string; weekday: string; daily: string }>();
@@ -25,6 +27,7 @@ export class ModalComponent {
     dailyWidget: new FormControl(''),
   });
 
+  // model open function 
   open() {
     this.visible = true;
   }
@@ -47,3 +50,6 @@ export class ModalComponent {
     }
   }
 }
+
+
+
